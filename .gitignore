@@ -18,4 +18,6 @@
 config/application.yml
 config/deploy.rb
 Capfile
+public/assets
+public/products
 
