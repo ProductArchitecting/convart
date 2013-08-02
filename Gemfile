@@ -1,12 +1,10 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3' ,  group: [:development, :test]
 
-gem 'mysql2', group: :production
+gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -39,13 +37,15 @@ end
 # Use unicorn as the app server
 # gem 'unicorn'
 
+gem 'spree',             github: 'spree/spree',             branch: 'rails4'
+gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: 'rails4'
+gem 'ransack',           github: 'ernie/ransack',           branch: 'rails-4'
+
 # Use Capistrano for deployment
 gem 'capistrano', group: :development
 
-# Use debugger
-gem 'debugger', group: [:development, :test]
-
-gem 'spree', github: 'spree/spree', branch: 'rails4'
-gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: 'rails4'
-gem 'ransack', github: 'ernie/ransack', branch: 'rails-4'
-gem 'awesome_nested_set', github: 'huoxito/awesome_nested_set', branch: 'rails4'
+group :development, :test do
+  gem "pry"
+  gem "debugger-pry"
+  gem 'debugger'
+end

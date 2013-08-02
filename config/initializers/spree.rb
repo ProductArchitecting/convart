@@ -11,7 +11,7 @@ Spree.config do |config|
   config.logo = "logo.png"
   config.admin_interface_logo = "logo.png"
 
-  if ENV["USER"]=="deployer" &&  ENV["LOGNAME"]=="deployer" && Rails.env=="production"
+  if Rails.env=="production"
     aws = AppConfig[:aws_s3]
     config.use_s3 = aws[:use_s3]
     config.s3_bucket = aws[:s3_bucket]
@@ -21,13 +21,10 @@ Spree.config do |config|
     config.s3_host_alias = aws[:s3_host_alias]
   end
 
-
-  # Example:
-  # Uncomment to override the default site name.
-  # config.site_name = "Spree Demo Site"
 end
+#ENV["USER"]=="deployer" &&  ENV["LOGNAME"]=="deployer"
 
-if ENV["USER"]=="deployer" &&  ENV["LOGNAME"]=="deployer" && Rails.env=="production"
+if Rails.env=="production"
   Paperclip.interpolates(:s3_eu_url) do |attachment, style|
     "#{attachment.s3_protocol}://#{Spree::Config[:s3_host_alias]}/#{attachment.bucket_name}/#{attachment.path(style).gsub(%r{^/}, "" )}"
   end
