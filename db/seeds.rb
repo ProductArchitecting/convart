@@ -9,3 +9,22 @@
 
 Spree::Core::Engine.load_seed if defined?(Spree::Core)
 Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
+
+
+
+@password_attrs = {password: "password", password_confirmation: "password"}
+
+puts 'Creating Admins'
+admin = Spree::User.new @password_attrs.merge({email: "ilango@convart.com"})
+admin.spree_role_ids=[1]
+admin.save!(validate: false)
+
+admin = Spree::User.new @password_attrs.merge({email: "thani@convart.com"})
+admin.spree_role_ids=[1]
+admin.save!(validate: false)
+
+puts 'Creating Users'
+user = Spree::User.new @password_attrs.merge({email: "user@convart.com"})
+user.spree_role_ids=[2]
+user.save!(validate: false)
+

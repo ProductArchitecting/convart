@@ -20,4 +20,5 @@ config/deploy.rb
 Capfile
 public/assets
 public/products
+config/apache2.conf
 

@@ -10,6 +10,7 @@ Spree.config do |config|
   config.site_url = "www.convart.com"
   config.logo = "logo.png"
   config.admin_interface_logo = "logo.png"
+  config.allow_ssl_in_production = false
 
   if Rails.env=="production"
     aws = AppConfig[:aws_s3]

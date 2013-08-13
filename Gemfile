@@ -37,12 +37,15 @@ end
 # Use unicorn as the app server
 # gem 'unicorn'
 
-gem 'spree',             github: 'spree/spree',             branch: 'rails4'
-gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: 'rails4'
-gem 'ransack',           github: 'ernie/ransack',           branch: 'rails-4'
+gem 'spree',             github: 'ProductArchitecting/spree',  branch: 'rails4'
+gem 'spree_auth_devise', github: 'spree/spree_auth_devise',    branch: 'rails4'
+gem 'ransack',           github: 'ernie/ransack',              branch: 'rails-4'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+end
 
 group :development, :test do
   gem "pry"
