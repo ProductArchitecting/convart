@@ -21,4 +21,5 @@ Capfile
 public/assets
 public/products
 config/apache2.conf
+temp/
 
